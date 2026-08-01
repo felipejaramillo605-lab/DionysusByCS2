@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --background: #0b1120;
+  --foreground: #e2e8f0;
+  --card: #131e32;
+  --card-foreground: #e2e8f0;
+  --primary: #f97316;
+  --primary-foreground: #ffffff;
+  --secondary: #1e2d45;
+  --secondary-foreground: #94a3b8;
+  --muted: #1a2540;
+  --muted-foreground: #64748b;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+  --border: #1e2d45;
+  --ring: #f97316;
+  --radius: 6px;
+  --sidebar: #080e1c;
+  --sidebar-foreground: #94a3b8;
+  --sidebar-active: #131e32;
+  --success: #22c55e;
+  --warning: #eab308;
+  --danger: #ef4444;
+  --info: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2d45;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d4060;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.badge-success { background: rgba(34,197,94,0.15); color: #22c55e; }
+.badge-warning { background: rgba(234,179,8,0.15); color: #eab308; }
+.badge-danger  { background: rgba(239,68,68,0.15);  color: #ef4444; }
+.badge-info    { background: rgba(59,130,246,0.15);  color: #3b82f6; }
+.badge-muted   { background: rgba(100,116,139,0.15); color: #94a3b8; }
+.badge-orange  { background: rgba(249,115,22,0.15);  color: #f97316; }
+.badge-purple  { background: rgba(168,85,247,0.15);  color: #a855f7; }
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}

@@ -1,0 +1,10 @@
+{
+  "description": "ERP platform for small to medium Colombian restaurants offering multi-company order management, POS, invoicing, inventory, and compliance features.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "project": "ERP Restaurante Multi-Compañía Colombia",
+  "epics": [
+    {
+      "id": "EPIC-001",
+      "name": "Multi-tenant base",
+      "stories": [
+        "Crear entidades companies y branches",
+        "Agregar company_id obligatorio a tablas transaccionales",
+        "Implementar selección de compañía activa para Owner",
+        "Implementar RLS por company_id y branch_id"
+      ]
+    },
+    {
+      "id": "EPIC-002",
+      "name": "Autenticación y seguridad",
+      "stories": [
+        "Login seguro",
+        "MFA para roles críticos",
+        "JWT corto y refresh token rotativo",
+        "RBAC con roles y permisos",
+        "Auditoría de accesos"
+      ]
+    },
+    {
+      "id": "EPIC-003",
+      "name": "Pedidos núcleo",
+      "stories": [
+        "Crear pedido en mesa",
+        "Crear pedido QR",
+        "Crear pedido domicilio",
+        "Enviar pedido a cocina",
+        "Implementar máquina de estados",
+        "Implementar auditoría de cambios",
+        "Implementar idempotencia",
+        "Implementar descuentos autorizados"
+      ]
+    },
+    {
+      "id": "EPIC-004",
+      "name": "POS y caja",
+      "stories": [
+        "Abrir caja",
+        "Cerrar caja",
+        "Registrar pagos",
+        "Dividir pagos",
+        "Arqueo",
+        "Reporte de caja",
+        "Reversos controlados"
+      ]
+    },
+    {
+      "id": "EPIC-005",
+      "name": "Facturación Colombia",
+      "stories": [
+        "Configurar datos fiscales de compañía",
+        "Configurar resolución de numeración",
+        "Generar factura electrónica",
+        "Generar documento equivalente electrónico POS",
+        "Integrar proveedor tecnológico",
+        "Registrar CUFE/CUDE",
+        "Notas crédito/débito",
+        "Manejar rechazos y reintentos"
+      ]
+    },
+    {
+      "id": "EPIC-006",
+      "name": "Inventario y recetas",
+      "stories": [
+        "Crear ingredientes",
+        "Crear recetas",
+        "Descontar inventario por pedido",
+        "Movimientos de bodega",
+        "Mermas",
+        "Conteos físicos"
+      ]
+    },
+    {
+      "id": "EPIC-007",
+      "name": "Reportes y auditoría",
+      "stories": [
+        "Dashboard ventas",
+        "Reporte impuestos",
+        "Reporte documentos DIAN",
+        "Reporte anulaciones",
+        "Reporte descuentos",
+        "Reporte logs Owner"
+      ]
+    }
+  ],
+  "critical_non_functional_requirements": {
+    "security": [
+      "RLS obligatorio",
+      "RBAC granular",
+      "CORS restrictivo",
+      "MFA roles críticos",
+      "logs inmutables"
+    ],
+    "performance": [
+      "pedidos rápidos",
+      "cache menú",
+      "colas para cocina e integraciones",
+      "índices por tenant"
+    ],
+    "compliance_colombia": [
+      "factura electrónica",
+      "documento equivalente electrónico POS",
+      "INC/IVA parametrizable",
+      "protección de datos Ley 1581"
+    ]
+  }
+}
