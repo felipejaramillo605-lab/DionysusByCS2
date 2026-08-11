@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, Legend } from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts'
 import { Download, TrendingUp } from 'lucide-react'
 
 const weekData = [
@@ -36,6 +36,10 @@ const topProd = [
 
 const fmtCOP = (v: number) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(v)
 const fmtM = (v: number) => `$${(v / 1000000).toFixed(1)}M`
+const formatTooltipValue = (value: number | string | readonly (number | string)[] | undefined, label: string) => {
+  const numericValue = Array.isArray(value) ? Number(value[0]) : Number(value)
+  return [Number.isFinite(numericValue) ? (label === 'Ventas' ? fmtCOP(numericValue) : `${numericValue}%`) : label === 'Ventas' ? fmtCOP(0) : '0%', label]
+}
 
 export default function ReportsView() {
   return (
@@ -81,7 +85,7 @@ export default function ReportsView() {
               <CartesianGrid strokeDasharray="3 3" stroke="#1e2d45" vertical={false} />
               <XAxis dataKey="dia" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <YAxis tickFormatter={fmtM} tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} width={45} />
-              <Tooltip contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }} formatter={(v: number) => [fmtCOP(v), 'Ventas']} labelStyle={{ color: '#94a3b8' }} />
+              <Tooltip contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }} formatter={(value) => formatTooltipValue(value, 'Ventas')} labelStyle={{ color: '#94a3b8' }} />
               <Bar dataKey="ventas" fill="#f97316" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
@@ -93,7 +97,7 @@ export default function ReportsView() {
               <Pie data={payMethods} cx="50%" cy="50%" innerRadius={45} outerRadius={70} dataKey="value" paddingAngle={3}>
                 {payMethods.map((entry, i) => <Cell key={i} fill={entry.color} />)}
               </Pie>
-              <Tooltip contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }} formatter={(v: number) => [`${v}%`, '']} />
+              <Tooltip contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }} formatter={(value) => formatTooltipValue(value, 'Porcentaje')} labelStyle={{ color: '#94a3b8' }} />
             </PieChart>
           </ResponsiveContainer>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -126,7 +130,7 @@ export default function ReportsView() {
               <CartesianGrid strokeDasharray="3 3" stroke="#1e2d45" vertical={false} />
               <XAxis dataKey="semana" tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} />
               <YAxis tickFormatter={fmtM} tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} width={45} />
-              <Tooltip contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }} formatter={(v: number) => [fmtCOP(v), 'INC']} />
+              <Tooltip contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }} formatter={(value) => formatTooltipValue(value, 'INC')} />
               <Line type="monotone" dataKey="inc" stroke="#f97316" strokeWidth={2} dot={{ fill: '#f97316', r: 3 }} />
             </LineChart>
           </ResponsiveContainer>
