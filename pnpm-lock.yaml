@@ -12,14 +12,14 @@ importers:
         specifier: ^1.23.0
         version: 1.23.0(react@19.2.8)
       react:
-        specifier: ^19.0.0
+        specifier: 19.2.8
         version: 19.2.8
       react-dom:
-        specifier: ^19.0.0
-        version: 19.2.4(react@19.2.8)
+        specifier: 19.2.8
+        version: 19.2.8(react@19.2.8)
       recharts:
         specifier: ^3.9.2
-        version: 3.9.2(@types/react@19.2.18)(react-dom@19.2.4(react@19.2.8))(react-is@19.2.7)(react@19.2.8)(redux@5.0.1)
+        version: 3.9.2(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react-is@19.2.7)(react@19.2.8)(redux@5.0.1)
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.0.0
@@ -598,10 +598,10 @@ packages:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
     engines: {node: ^10 || ^12 || >=14}
 
-  react-dom@19.2.4:
-    resolution: {integrity: sha512-AXJdLo8kgMbimY95O2aKQqsz2iWi9jMgKJhRBAxECE4IFxfcazB2LmzloIoibJI3C12IlY20+KFaLv+71bUJeQ==}
+  react-dom@19.2.8:
+    resolution: {integrity: sha512-rVprimfGBG3DR+Tq0IQG2DT5PxKth1WIGDmj5yPmlzr4YBe7uyE+Du4oVqTDXZSHGGGXRtTJEGSSePyQCMBglQ==}
     peerDependencies:
-      react: ^19.2.4
+      react: ^19.2.8
 
   react-is@19.2.7:
     resolution: {integrity: sha512-kZFnouyVv7eP/Phmrlo9FK+zcAdriZJvzxXHF1Sl1P377WSGe2G/JxVolhTrB/jeV47lKImhNUsijjHAAbcl/A==}
@@ -1134,7 +1134,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  react-dom@19.2.4(react@19.2.8):
+  react-dom@19.2.8(react@19.2.8):
     dependencies:
       react: 19.2.8
       scheduler: 0.27.0
@@ -1152,7 +1152,7 @@ snapshots:
 
   react@19.2.8: {}
 
-  recharts@3.9.2(@types/react@19.2.18)(react-dom@19.2.4(react@19.2.8))(react-is@19.2.7)(react@19.2.8)(redux@5.0.1):
+  recharts@3.9.2(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react-is@19.2.7)(react@19.2.8)(redux@5.0.1):
     dependencies:
       '@reduxjs/toolkit': 2.12.0(react-redux@9.3.0(@types/react@19.2.18)(react@19.2.8)(redux@5.0.1))(react@19.2.8)
       clsx: 2.1.1
@@ -1161,7 +1161,7 @@ snapshots:
       eventemitter3: 5.0.4
       immer: 11.1.11
       react: 19.2.8
-      react-dom: 19.2.4(react@19.2.8)
+      react-dom: 19.2.8(react@19.2.8)
       react-is: 19.2.7
       react-redux: 9.3.0(@types/react@19.2.18)(react@19.2.8)(redux@5.0.1)
       reselect: 5.2.0
