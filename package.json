@@ -12,7 +12,8 @@
         "preview": "vite preview",
         "format": "oxfmt",
         "check:react-runtime": "node scripts/check-react-runtime-versions.mjs",
-        "test:smoke": "playwright test tests/runtime-smoke.spec.ts --project=chromium"
+        "test:smoke": "playwright test tests/runtime-smoke.spec.ts --project=chromium",
+        "check:architecture": "node scripts/check-architecture-boundaries.mjs"
     },
     "dependencies": {
         "lucide-react": "^1.23.0",

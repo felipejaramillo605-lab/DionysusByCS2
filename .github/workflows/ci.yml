@@ -41,6 +41,9 @@ jobs:
 
       - name: Verify React runtime alignment
         run: corepack pnpm run check:react-runtime
+      - name: Verify architecture boundaries
+        run: corepack pnpm run check:architecture
+
       - name: TypeScript
         run: corepack pnpm run typecheck
 
