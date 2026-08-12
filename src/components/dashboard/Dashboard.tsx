@@ -47,6 +47,10 @@ const estadoBadge: Record<string, { cls: string; label: string }> = {
 
 const fmt = (v: number) => `$${(v / 1000).toFixed(0)}k`
 const fmtCOP = (v: number) => new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(v)
+const formatTooltipValue = (value: number | string | readonly (number | string)[] | undefined, label: string) => {
+  const numericValue = Array.isArray(value) ? Number(value[0]) : Number(value)
+  return [fmtCOP(Number.isFinite(numericValue) ? numericValue : 0), label]
+}
 
 interface Props { onNavigate: (m: Module) => void }
 
@@ -90,7 +94,7 @@ export default function Dashboard({ onNavigate }: Props) {
               <YAxis tickFormatter={fmt} tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} width={40} />
               <Tooltip
                 contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }}
-                formatter={(v: number) => [fmtCOP(v), 'Ventas']}
+                formatter={(value) => formatTooltipValue(value, 'Ventas')}
                 labelStyle={{ color: '#94a3b8' }}
               />
               <Area type="monotone" dataKey="ventas" stroke="#f97316" strokeWidth={2} fill="url(#salesGrad)" dot={false} />
@@ -164,7 +168,7 @@ export default function Dashboard({ onNavigate }: Props) {
               <YAxis tick={{ fontSize: 10, fill: '#64748b' }} axisLine={false} tickLine={false} width={25} />
               <Tooltip
                 contentStyle={{ background: '#131e32', border: '1px solid #1e2d45', borderRadius: 6, fontSize: 12 }}
-                formatter={(v: number) => [v, 'Pedidos']}
+                formatter={(value) => formatTooltipValue(value, 'Pedidos')}
                 labelStyle={{ color: '#94a3b8' }}
               />
               <Bar dataKey="pedidos" fill="#3b82f6" radius={[3, 3, 0, 0]} opacity={0.85} />

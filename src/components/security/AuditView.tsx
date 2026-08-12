@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Shield, AlertTriangle, Eye, Lock, User, FileText, LogIn, LogOut } from 'lucide-react'
+import { Shield, AlertTriangle, Eye, Lock, User, FileText, LogIn } from 'lucide-react'
 
 type RiskLevel = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL'
 
@@ -30,12 +30,6 @@ const logs: AuditLog[] = [
   { id: 'AL-8839', timestamp: '11:42:00', usuario: 'maria.c@parrilla.co', accion: 'products.update_price', recurso: 'Product', recursoId: 'PRD-012', ip: '192.168.1.23', resultado: 'DENIED', riskLevel: 'HIGH', companyId: 'CMP-001', branchId: 'BRN-001', detalle: 'Sin permiso products.update_price — bloqueado por RBAC' },
 ]
 
-const riskColors: Record<RiskLevel, string> = {
-  LOW: '#22c55e',
-  MEDIUM: '#eab308',
-  HIGH: '#f97316',
-  CRITICAL: '#ef4444',
-}
 const riskCls: Record<RiskLevel, string> = {
   LOW: 'badge-success',
   MEDIUM: 'badge-warning',

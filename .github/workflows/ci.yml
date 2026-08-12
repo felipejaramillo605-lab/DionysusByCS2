@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Typecheck, build, and dependency audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+          cache: pnpm
+
+      - name: Verify pnpm version
+        run: corepack pnpm --version
+
+      - name: Install reproducibly
+        run: corepack pnpm install --frozen-lockfile
+
+      - name: TypeScript
+        run: corepack pnpm run typecheck
+
+      - name: Production build
+        run: corepack pnpm run build
+
+      - name: Audit production dependencies
+        run: corepack pnpm audit --prod --audit-level high
+
+      - name: Audit all dependencies
+        run: corepack pnpm audit --audit-level high

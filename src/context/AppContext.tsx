@@ -6,7 +6,7 @@ export type OrderStatus =
   | 'CREATED' | 'CONFIRMED' | 'SENT_TO_KITCHEN'
   | 'IN_PREPARATION' | 'READY' | 'DELIVERED'
   | 'INVOICED' | 'PAID' | 'CANCELLED' | 'VOIDED'
-  | 'REFUNDED' | 'PARTIALLY_PAID' | 'FAILED_INTEGRATION'
+  | 'REFUNDED' | 'PARTIALLY_PAID' | 'PARTIALLY_READY' | 'FAILED_INTEGRATION'
 
 export type OrderType = 'mesa' | 'domicilio' | 'llevar' | 'qr' | 'web' | 'telefono'
 

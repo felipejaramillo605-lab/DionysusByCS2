@@ -11,6 +11,7 @@ const titles: Record<Module, { label: string; sub: string }> = {
   reports: { label: 'Reportes & BI', sub: 'Ventas, impuestos, rentabilidad y análisis' },
   admin: { label: 'Administración General', sub: 'Compañías, sucursales, usuarios y roles' },
   audit: { label: 'Auditoría & Seguridad', sub: 'Logs de acceso, cambios críticos y sesiones' },
+  account: { label: 'Cuenta y Seguridad', sub: 'Perfil, MFA, eliminación de cuenta y sesiones' },
 }
 
 export default function TopBar({ module }: { module: Module }) {

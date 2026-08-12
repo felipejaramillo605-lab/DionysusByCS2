@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle, TrendingDown, Package, ArrowUpRight, ArrowDownRight, RefreshCw } from 'lucide-react'
+import { AlertTriangle, Package, ArrowUpRight, ArrowDownRight, RefreshCw } from 'lucide-react'
 
 interface Product {
   id: string

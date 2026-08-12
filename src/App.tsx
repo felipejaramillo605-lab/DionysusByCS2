@@ -46,7 +46,7 @@ export default function App() {
     )
   }
 
-  const views: Record<Module, JSX.Element> = {
+  const views: Record<Module, React.JSX.Element> = {
     dashboard: <Dashboard onNavigate={setActiveModule} />,
     orders:    <OrdersView />,
     kds:       <KDSView />,
