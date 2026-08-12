@@ -39,12 +39,30 @@ jobs:
       - name: Install reproducibly
         run: corepack pnpm install --frozen-lockfile
 
+      - name: Verify React runtime alignment
+        run: corepack pnpm run check:react-runtime
       - name: TypeScript
         run: corepack pnpm run typecheck
 
       - name: Production build
         run: corepack pnpm run build
 
+      - name: Install Playwright Chromium
+        run: corepack pnpm exec playwright install chromium --with-deps
+
+      - name: Runtime smoke test
+        run: corepack pnpm run test:smoke
+
+      - name: Upload Playwright evidence
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-runtime-evidence
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Audit production dependencies
         run: corepack pnpm audit --prod --audit-level high
 
